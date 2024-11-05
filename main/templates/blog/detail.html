@@ -1,6 +1,7 @@
 {% extends "main.html" %}
 {% block page_content %}
 {% load static %}
+{% block title %} | {{ post.title }}{% endblock title %}
     <small>
     </small>
 
@@ -19,6 +20,7 @@
     <div class="article-content">
         {{ post.body|safe }}
     </div>
+    
     
 
     {% if user.is_authenticated %}
