@@ -1,0 +1,44 @@
+{% extends "main.html" %}
+{% block page_title %}
+{% endblock page_title %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+{% block page_content %}
+    {% block posts %}
+    <div class="latest-posts-container">
+        {% for post in latest_posts %}
+        <div class="latest-post">
+            <a href="{% url 'blog_detail' post.pk %}">
+                {% if post.image and post.image.url %}
+                    <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post-image">
+                {% else %}
+                    <img src="{% static 'default-image.png' %}" alt="{{ post.title }}" class="post-image">
+                {% endif %}
+            </a>
+            <h2><a href="{% url 'blog_detail' post.pk %}">{{ post.title }}</a></h2>
+            
+            
+        </div>
+        {% endfor %}
+    </div>
+    
+    <div class="other-posts-container">
+        {% for post in other_posts %}
+        <div class="post-card">
+            <a href="{% url 'blog_detail' post.pk %}">
+                {% if post.image and post.image.url %}
+                    <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post-image">
+                {% else %}
+                    <img src="{% static 'default-image.png' %}" alt="{{ post.title }}" class="post-image">
+                {% endif %}
+            </a>
+            <h2><a href="{% url 'blog_detail' post.pk %}">{{ post.title }}</a></h2>
+            
+            
+        </div>
+        {% endfor %}
+    </div>
+    
+    
+    {% endblock posts %}
+{% endblock page_content %}

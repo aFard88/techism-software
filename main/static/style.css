@@ -1,0 +1,421 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+
+a {
+    
+    text-decoration: none;  
+    color: #000000; 
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+
+a:hover {
+    color: #1b3769; 
+    transform: scale(1.05); 
+}
+
+
+a:active {
+    color: #1b3769; 
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+    direction: rtl;
+    text-align: right; 
+            
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.header {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9); /* پس‌زمینه روشن‌تر */
+    transition: background-color 0.3s, box-shadow 0.3s;
+    z-index: 1000; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 10px 20px; 
+}
+        
+   
+   
+.header a {
+    text-decoration: none;
+    color: white;
+    
+    transition: color 0.3s, transform 0.3s;
+}
+
+.header a img {
+
+     max-height: 70px;
+
+}
+
+.header a:hover {
+    color: rgb(0, 0, 0);
+    transform: scale(1.2);
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 35px;
+    color: rgb(0, 0, 0);
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap; /* اجازه می‌دهد تا لینک‌ها به خط بعدی بروند */
+}
+
+.nav-links a {
+    margin-left: 20px;
+    text-decoration: none;
+    transition: color 0.3s, transform 0.3s;
+    color: rgb(0, 0, 0);
+}
+
+.photos {
+    height: 200px;
+    border-radius: 20px;      
+            
+}
+
+.scroll-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition: color 0.3s, transform 0.3s;
+            
+}
+.scroll-container:hover {
+    transform: scale(1.005);
+    color: #000000;
+}
+
+.scroll-item {
+    background-color: #f0f0f0;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 20px;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    color: white;
+    background-color: #2b2b2c;
+}
+.body {
+    flex: 1; 
+    padding: 20px;
+    
+}
+
+footer h3 {
+    margin: 0;
+}
+
+footer a {
+    text-decoration: none;
+    color: white;
+}
+
+footer a img {
+    height: 30px; 
+}
+
+footer a:hover {
+    color: #000000;
+    transition: color 0.3s, transform 0.3s;
+    transform: scale(1.2);
+}
+form {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 0 auto; 
+}
+.form-control {
+    resize: none;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+.form-control input[type="text"]:focus,
+.form-control input[type="email"]:focus,
+.form-control input[type="password"]:focus {
+    border-color: #000000;
+    outline: none;
+}
+
+.btn-primary {
+    font-family: Vazir;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 0px 15px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.btn-primary:hover {
+    transform: scale(1.05);
+}
+
+.main-content {
+    
+    flex: 1;
+    padding: 32px;
+    padding-top: 100px;
+    padding-bottom: 20px;
+    padding-left: 330px;
+    padding-right: 330px;
+}
+
+body p {
+    padding: 2;
+}
+
+
+.dark {
+
+    background-color: #2b2b2c;
+    color: #f0f0f0;
+    
+}
+body.dark {
+    background-color: #2b2b2c;
+    color: #ffffff;
+}
+body.dark .header {
+    background-color: #2b2b2c;
+}
+
+
+body.dark {
+    background-color: #2b2b2c;
+    color: #ffffff;
+}
+
+body.dark * {
+    color: inherit; 
+}
+
+body.dark a {
+    color: #ffffff; 
+}
+
+
+.latest-posts-container {
+    padding-top: 40px;
+    display: flex;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    color: #000000;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.latest-post {
+    flex: 1 1 calc(50% - 20px); 
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 60px;
+    color: #000000;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.latest-post img.post-image {
+    width: 100%;
+    height: 285x; /* ارتفاع تصویر را افزایش دادم */
+    object-fit: cover; /* اطمینان از نمایش صحیح تصویر در اندازه جدید */
+    border-radius: 30px;
+    margin-bottom: 10px;
+    transition: border-color 0.3s ease;
+}
+
+.other-posts-container .post-card {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 30px;
+    color: #000000;
+    transition: border-color 0.3s ease;
+    padding-left: 140px;
+    padding-right: 140px;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.post-card img.post-image {
+    width: 100%;
+    height: auto;
+    border-radius: 60px;
+    margin-bottom: 10px;
+    color: #000000;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.latest-post, .post-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* انتقال افکت برای تغییرات صاف */
+}
+
+.latest-post:hover, .post-card:hover {
+    transform: scale(1.05); /* افزایش سایز در هاور */
+}
+
+
+body.dark .grid-item,
+body.dark .scroll-item,
+body.dark .form-control {
+    background-color: #2b2b2c;
+    color: #ffffff; 
+}
+
+body.dark .latest-posts-container,
+body.dark .other-posts-container,
+body.dark .latest-post,
+body.dark .other-posts-container .post-card {
+    background-color: #2b2b2c;
+    color: #ffffff; 
+}
+
+body.dark .latest-posts-container h3 a p,
+body.dark .other-posts-container h3 a p,
+body.dark .latest-post h3 a p {
+    color: #ffffff; 
+}
+
+.latest-posts-container h3 a p,
+.other-posts-container h3 a p,
+.latest-post h3 a p {
+    color: #000000;
+}
+
+body.dark .btn-primary {
+    color: white;
+    background-color: #2b2b2c;
+}
+.profile-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;  /* تبدیل عکس به دایره */
+    margin-right: 10px;  /* فاصله از متن کامنت */
+}
+
+.article-content img {
+    border-radius: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    max-width: 100%;  /* جلوگیری از تجاوز تصویر به بیرون از محدوده */
+    height: auto;     /* حفظ نسبت تصویر */
+    display: block;   /* جلوگیری از تداخل با متن */
+    margin: 10px auto;  /* فاصله با اطراف و مرکزیت تصویر */
+}
+
+
+.article-content {
+
+    text-align: center;
+
+}
+
+body, h1, h2, h3, p, a {
+    font-family: 'Vazirmatn', sans-serif;
+}
+
+.post-author {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.author-profile-image {
+    padding: 5px ;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+
+@media (max-width: 800px) {
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        
+    }
+
+    .main-content {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .nav-links {
+        width: 100%; 
+        display: block;
+        font-size : 1px;
+    }
+
+    .nav-links a {
+        font-size : 18px;
+        margin: 8px; 
+        width: 100%; 
+        text-align: center; 
+    }
+
+    .header {
+        padding: 10px; 
+        font-size: 25px;
+    }
+
+    footer {
+        flex-direction: column; 
+        align-items: flex-start; 
+    }
+
+    footer h3 {
+        margin-bottom: 7px; 
+    }
+
+    footer a {
+        margin-bottom: 5px; 
+        width: 100%; 
+        text-align: center; 
+    }
+    .other-posts-container .post-card {
+
+        font-size: 6px;
+        padding-left: 0px;
+        padding-right: 0px;
+
+    }
+} 

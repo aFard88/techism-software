@@ -1,0 +1,12 @@
+{% extends 'main.html' %}
+
+{% block page_content %}
+<h2>پست‌های دسته {{ category.name }}</h2>
+<ul>
+    {% for post in posts %}
+        <li>
+            <a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

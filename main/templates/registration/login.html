@@ -1,0 +1,37 @@
+{% extends "main.html" %}
+{% block page_content %}
+{% load static %}
+
+    <div class="main-content">
+        
+        <h2>ورود</h2>
+
+        <form method="post">
+            {% csrf_token %}
+            
+            {% if form.non_field_errors %}
+                <div class="error">{{ form.non_field_errors }}</div>
+            {% endif %}
+            
+            <div>
+                <label for="username">نام کاربری</label>
+                {{ form.username }}
+                {% if form.username.errors %}
+                    <div class="error">{{ form.username.errors }}</div>
+                {% endif %}
+            </div>
+            
+            <div>
+                <label for="password">رمز عبور</label>
+                {{ form.password }}
+                {% if form.password.errors %}
+                    <div class="error">{{ form.password.errors }}</div>
+                {% endif %}
+            </div>
+            
+            <button type="submit" class="btn-primary">ورود</button>
+        </form>
+
+    </div>
+{% endblock %}
+

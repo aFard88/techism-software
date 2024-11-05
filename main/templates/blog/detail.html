@@ -1,0 +1,56 @@
+{% extends "main.html" %}
+{% block page_content %}
+{% load static %}
+    <small>
+    </small>
+
+    <h2>{{ post.title }}</h2>
+    <div class="post-author">
+        {% if post.author.profile_image %}
+            <img src="{{ post.author.profile_image.url }}" alt="{{ post.author.username }}" class="author-profile-image" width="50" height="50">
+        {% else %}
+            <img src="{% static 'default-profile.png' %}" alt="{{ post.author.username }}" class="author-profile-image" width="50" height="50">
+        {% endif %}
+        <p><a href="{% url 'author_posts' post.author.username %}">
+            <p>{{ post.author.username }}</p>
+        </a></p>
+    </div>
+    
+    <div class="article-content">
+        {{ post.body|safe }}
+    </div>
+    
+
+    {% if user.is_authenticated %}
+    
+    <form method="post">
+        {% csrf_token %}
+       
+        <div>
+            {{ form.body }}
+        </div>
+        <button type="submit" class="btn-primary">ارسال</button>
+    </form>
+    {% else %}
+    <h3>لطفا برای ثبت نظر خود وارد شوید</h3>
+    {% endif %}
+
+    <h3>نظرات:</h3>
+    {% load static %}
+
+    {% for comment in comments %}
+    <div class="comment">
+        <div class="comment-author">
+            {% if comment.author.profile_image %}
+                <img src="{{ comment.author.profile_image.url }}" alt="Profile Image" class="profile-image" style="width: 50px; height: 50px; border-radius: 50%;">
+            {% else %}
+                <img src="{% static 'default-profile.png' %}" alt="Default Profile Image" class="profile-image" style="width: 50px; height: 50px; border-radius: 50%;">
+            {% endif %}
+            <p>{{ comment.author.username }}</p>
+        </div>
+        <div class="comment-body">
+            <p>{{ comment.body }}</p>
+        </div>
+    </div>
+    {% endfor %}
+{% endblock page_content %}

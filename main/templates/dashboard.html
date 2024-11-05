@@ -1,0 +1,37 @@
+{% extends "main.html" %}
+{% block page_content %}
+
+{% load static %}
+
+</div>
+
+    <div class="main-content">
+        
+        <h1>سلام, {{ user.username|default:'Guest' }}!</h1>
+        <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit" class="btn-primary">خروج</button>
+        </form>
+
+        <form method="POST" action="{% url 'upload_profile_image' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="id_profile_image">عکس پروفایل:</label>
+            <input type="file" name="profile_image" id="id_profile_image" required>
+            <div style="color: red;">{{ form.errors }}</div>
+            <button type="submit">آپلود عکس پروفایل</button>
+        </form>
+
+        
+    <div class="profile">
+        {% if user.profile_image %}
+            <img src="{{ user.profile_image.url }}" alt="Profile Photo" class="profile-photo">
+        {% else %}
+            <img src="{% static 'default-profile.png' %}" alt="Default Photo" class="profile-photo">
+        {% endif %}
+        
+    </div>
+
+</div>
+{% endblock page_content %}
+
+
