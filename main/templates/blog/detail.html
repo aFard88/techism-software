@@ -2,10 +2,8 @@
 {% block page_content %}
 {% load static %}
 {% block title %} | {{ post.title }}{% endblock title %}
-    <small>
-    </small>
+    
 
-    <h2>{{ post.title }}</h2>
     <div class="post-author">
         {% if post.author.profile_image %}
             <img src="{{ post.author.profile_image.url }}" alt="{{ post.author.username }}" class="author-profile-image" width="50" height="50">
@@ -37,7 +35,6 @@
     <h3>لطفا برای ثبت نظر خود وارد شوید</h3>
     {% endif %}
 
-    <h3>نظرات:</h3>
     {% load static %}
 
     {% for comment in comments %}
