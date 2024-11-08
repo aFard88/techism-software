@@ -1,0 +1,3 @@
+django
+django-ckeditor-5
+pillow

@@ -2,7 +2,6 @@ from django.contrib import admin
 from main.models import Category, Comment, Post , CustomUser
 from .forms import CustomUserCreationForm, CustomUserChangeForm
 from django.contrib.auth.admin import UserAdmin
-from ckeditor_uploader.widgets import CKEditorUploadingWidget
 from django import forms
 from .models import Post
 
