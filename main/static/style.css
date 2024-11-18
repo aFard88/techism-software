@@ -419,3 +419,13 @@ body, h1, h2, h3, p, a {
 
     }
 } 
+
+.p-4 {
+
+    padding: 32px;
+    padding-top: 100px;
+    padding-bottom: 20px;
+    padding-left: 330px;
+    padding-right: 330px;
+    
+}
