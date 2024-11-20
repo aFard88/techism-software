@@ -24,9 +24,6 @@ class Post(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE , default=1)
     
-   
-    
-    
     def __str__(self):
         return self.title
 
@@ -59,7 +56,7 @@ class CustomUserManager(BaseUserManager):
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(max_length=50, unique=True)
     email = models.EmailField(unique=True)
-    profile_image = models.ImageField(upload_to='', blank=True, null=True)  # فیلد عکس پروفایل
+    profile_image = models.ImageField(upload_to='', blank=True, null=True) 
     date_joined = models.DateTimeField(auto_now_add=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)

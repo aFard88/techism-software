@@ -4,24 +4,10 @@ from django.template import loader
 from django.contrib.auth import login,authenticate,logout
 from django.shortcuts import redirect, render, get_object_or_404
 from django.urls import reverse
-from .models import Member
-from main.models import Post, Comment
-from django.http import HttpResponseRedirect
-from main.forms import CommentForm
-from django.http import HttpResponseRedirect
-from .models import Post, Comment
+from .models import *
+from .forms import *
 from django.contrib.auth.decorators import login_required
-from .forms import CustomUserCreationForm
-from .models import Category
-from django.contrib.auth.decorators import login_required
-from .forms import ProfileImageForm
-from django.shortcuts import render, redirect
-from .forms import ProfileImageForm
-from .models import Post, CustomUser
 from django.views.generic import ListView
-from .models import Category, Post
-
-
 
 
 def main(request):
@@ -42,8 +28,8 @@ def dashboard(request):
 
 class CategoryListView(ListView):
     model = Category
-    template_name = 'category_list.html'  # فایل قالبی که لیست دسته‌ها را نمایش می‌دهد
-    context_object_name = 'categories'  # نامی که در قالب به لیست دسترسی داریم
+    template_name = 'category_list.html'  
+    context_object_name = 'categories'  
 
 def blog_index(request):
     latest_posts = Post.objects.order_by('-created_on')[:3]  
@@ -105,7 +91,7 @@ def register(request):
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('http://127.0.0.1:8000/login')
+            return redirect('login')
     else:
         form = CustomUserCreationForm()
     return render(request, 'register.html', {'form': form})
@@ -155,9 +141,8 @@ class AuthorDetailView(ListView):
     context_object_name = 'posts'
 
     def get_queryset(self):
-        # گرفتن نویسنده بر اساس username از URL
         self.author = get_object_or_404(CustomUser, username=self.kwargs['username'])
-        # گرفتن تمام مقالات نوشته شده توسط نویسنده
+
         return Post.objects.filter(author=self.author)
 
     def get_context_data(self, **kwargs):
@@ -173,9 +158,8 @@ class CategoryDetailView(ListView):
     context_object_name = 'posts'
 
     def get_queryset(self):
-        # گرفتن دسته‌بندی بر اساس آی‌دی از URL
+
         self.category = get_object_or_404(Category, id=self.kwargs['pk'])
-        # گرفتن تمام پست‌های مربوط به این دسته‌بندی
         return Post.objects.filter(categories=self.category)
 
     def get_context_data(self, **kwargs):

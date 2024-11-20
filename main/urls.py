@@ -1,15 +1,12 @@
-from django.urls import path
+from django.urls import path , re_path
 from . import views
-from .views import dashboard,logout,register
 from .views import *
 from django.conf.urls import include
 from django.conf import settings
 from django.conf.urls.static import static
 from django.views.static import serve
-from django.urls import re_path
 from .forms import CustomAuthenticationForm
 from django.contrib.auth import views as auth_views
-from .views import AuthorDetailView
 
 
 urlpatterns = [
