@@ -429,3 +429,11 @@ body, h1, h2, h3, p, a {
     padding-right: 330px;
     
 }
+
+
+.errorlist {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    list-style: none;
+}
