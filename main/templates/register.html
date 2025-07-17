@@ -1,8 +1,13 @@
 {% extends "main.html" %}
-{% block page_content %}
+{% block content %}
 {% load static %}
     <div class="main-content">
-        <h2>ثبت‌نام</h2>
+        <h2>ثبت نام</h2>
+        <div class="register-form">
+
+
+
+        
         <form method="post">
             {% csrf_token %}
             <div class="form-control">
@@ -37,6 +42,7 @@
         
             <input type="submit" value="ثبت‌نام" class="btn-primary">
         </form>
+        </div>
     </div>
 {% endblock %}
 

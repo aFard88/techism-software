@@ -45,6 +45,7 @@ class CustomUserChangeForm(UserChangeForm):
 class CustomAuthenticationForm(AuthenticationForm):
     username = forms.CharField(label="نام کاربری")
     password = forms.CharField(label="رمز عبور")
+    error_messages = {"نام کاربری یا رمز عبور غلط است"}
 
 class ProfileImageForm(forms.ModelForm):
     class Meta:

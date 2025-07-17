@@ -1,5 +1,10 @@
-{% extends "blog/index.html" %}
+{% extends "main.html" %}
+{% block content %}
+    {% for post in posts %}
+        <li>
+            <a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a>
+        </li>
+    {% endfor %}
+{% endblock content %}
 
-{% block page_title %}
-<h2>{{ category }}</h2>
-{% endblock page_title %}
+

@@ -1,11 +1,11 @@
 {% extends "main.html" %}
-{% block page_content %}
+{% block content %}
 {% load static %}
 
     <div class="main-content">
         
         <h2>ورود</h2>
-
+        <div class="login-form">
         <form method="post">
             {% csrf_token %}
             
@@ -31,6 +31,7 @@
             
             <button type="submit" class="btn-primary">ورود</button>
         </form>
+        </div>
 
     </div>
 {% endblock %}

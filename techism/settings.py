@@ -56,6 +56,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'main.context_processors.category_list',
+
             ],
         },
     },
@@ -167,7 +169,7 @@ CKEDITOR_5_CONFIGS = {
             '|',
             'blockQuote',
         ],
-        'toolbar': ['heading', '|', 'outdent', 'indent', '|', 'bold', 'italic', 'link', 'underline', 'strikethrough','code', '|', 'codeBlock', 'sourceEditing', 'insertImage','bulletedList', 'numberedList', '|',  'blockQuote', 'imageUpload', '|','fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', 'mediaEmbed', 'removeFormat',],
+        'toolbar': ['heading', '|', 'outdent', 'indent', '|', 'bold', 'italic', 'link', 'underline', 'strikethrough','code', '|', 'codeBlock', 'sourceEditing', 'insertImage','bulletedList', 'numberedList', '|',  'blockQuote', 'imageUpload', '|','fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', 'mediaEmbed', 'alignment'],
         
         'table': {
             'contentToolbar': [ 'tableColumn', 'tableRow', 'mergeTableCells',

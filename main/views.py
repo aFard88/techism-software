@@ -8,6 +8,8 @@ from .models import *
 from .forms import *
 from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView
+from .forms import CustomAuthenticationForm
+
 
 
 def main(request):
@@ -26,31 +28,45 @@ def about(request):
 def dashboard(request):
     return render(request, "dashboard.html")
 
-class CategoryListView(ListView):
-    model = Category
-    template_name = 'category_list.html'  
-    context_object_name = 'categories'  
+#class CategoryListView(ListView):
+ #   model = Category
+  #  template_name = 'main.html'  
+   # context_object_name = 'categories'  
+
+#def blog_index(request):
+  #  latest_posts = Post.objects.order_by('-created_on')[:3]  
+   # other_posts = Post.objects.order_by('-created_on')[3:]   
+    
+   # context = {
+    #    "latest_posts": latest_posts,
+     #   "other_posts": other_posts,
+        
+    #}
+   # categories = Category.objects.all()
+  #  return render(request, "main.html", categories , context)
 
 def blog_index(request):
-    latest_posts = Post.objects.order_by('-created_on')[:3]  
-    other_posts = Post.objects.order_by('-created_on')[3:]   
-    
-    context = {
-        "latest_posts": latest_posts,
-        "other_posts": other_posts,
-    }
-    return render(request, "blog/index.html", context)
+    latest_posts = Post.objects.all().order_by('-created_on')[:3]
+    other_posts = Post.objects.all().order_by('-created_on')[3:]
+    categories = Category.objects.all()
+    return render(request, 'main.html', {
+        'latest_posts': latest_posts,
+        'other_posts': other_posts,
+        'categories': categories
+    })
 
-def blog_category(request, category):
-    posts = Post.objects.filter(
-        categories__name__contains=category
-    )
+
+
+#def blog_category(request, category):
+  #  posts = Post.objects.filter(
+  #      categories__name__contains=category
+   # )
     
-    context = {
-        "category": category,
-        "posts": posts,
-    }
-    return render(request, "blog/category.html", context)
+   # context = {
+  #      "category": category,
+   #     "posts": posts,
+  #  }
+   # return render(request, "blog/category.html", context)
 
 def blog_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)

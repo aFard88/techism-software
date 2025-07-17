@@ -1,5 +1,5 @@
 {% extends "main.html" %}
-{% block page_content %}
+{% block content %}
 
 {% load static %}
 
@@ -8,17 +8,19 @@
     <div class="main-content">
         
         <h1>سلام, {{ user.username|default:'Guest' }}!</h1>
-        <form method="post" action="{% url 'logout' %}">
+        <form method="post" action="{% url 'logout' %}" class="dashboard-form">
             {% csrf_token %}
             <button type="submit" class="btn-primary">خروج</button>
-        </form>
+            <a href="{% url 'password_change' %}" class="btn">تغییر رمز عبور</a>
 
-        <form method="POST" action="{% url 'upload_profile_image' %}" enctype="multipart/form-data">
+        </form>
+        
+        <form method="POST" action="{% url 'upload_profile_image' %}" enctype="multipart/form-data" class="profile-form">
             {% csrf_token %}
             <label for="id_profile_image">عکس پروفایل:</label>
-            <input type="file" name="profile_image" id="id_profile_image" required>
+            <input class="btn-primary"  type="file" name="profile_image" id="id_profile_image" required>
             <div style="color: red;">{{ form.errors }}</div>
-            <button type="submit">آپلود عکس پروفایل</button>
+            <button type="submit" class="btn-primary">آپلود عکس پروفایل</button>
         </form>
 
         
@@ -32,6 +34,6 @@
     </div>
 
 </div>
-{% endblock page_content %}
+{% endblock content %}
 
 
