@@ -25,6 +25,7 @@ a:active {
 }
 
 body {
+    font-style: Vazirmatn;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -83,7 +84,7 @@ body {
 
 .nav-links {
     display: flex;
-    flex-wrap: wrap; /* اجازه می‌دهد تا لینک‌ها به خط بعدی بروند */
+    flex-wrap: wrap;
 }
 
 .nav-links a {
@@ -204,6 +205,70 @@ body p {
     padding: 2;
 }
 
+.latest-posts-container {
+    padding-top: 40px;
+    display: flex;
+    margin-bottom: 20px;
+    color: #000000;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.latest-post {
+    flex: 1 1 calc(50% - 20px); 
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 60px;
+    color: #000000;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.latest-post img.post-image {
+    width: 100%;
+    height: auto; 
+    object-fit: cover; 
+    border-radius: 30px;
+    margin-bottom: 10px;
+    transition: border-color 0.3s ease;
+}
+
+.other-posts-container .post-card {
+    background-color: #ffffff;
+    margin-bottom: 20px;
+    border-radius: 60px;
+    color: #000000;
+    transition: border-color 0.3s ease;
+    padding-right: 1000px;
+    transition: color 0.3s, transform 0.3s;
+}
+
+
+.post-card img.post-image {
+    width: 100%;
+    height: auto;
+    border-radius: 60px;
+    margin-bottom: 10px;
+    color: #000000;
+    transition: color 0.3s, transform 0.3s;
+}
+
+
+.latest-post a {
+    border-top: 1px solid;
+}
+.post-card a {
+    border-top: 1px solid;
+}
+.other-posts-title {
+    padding-left: 10px;
+}
+
+.latest-post {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+.latest-post:hover, .post-card:hover {
+    transform: scale(1.05); 
+}
 
 .dark {
 
@@ -233,63 +298,6 @@ body.dark a {
     color: #ffffff; 
 }
 
-
-.latest-posts-container {
-    padding-top: 40px;
-    display: flex;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-    color: #000000;
-    transition: color 0.3s, transform 0.3s;
-}
-
-.latest-post {
-    flex: 1 1 calc(50% - 20px); 
-    background-color: #ffffff;
-    padding: 15px;
-    border-radius: 60px;
-    color: #000000;
-    box-sizing: border-box;
-    transition: border-color 0.3s ease;
-}
-
-.latest-post img.post-image {
-    width: 100%;
-    height: 285x; /* ارتفاع تصویر را افزایش دادم */
-    object-fit: cover; /* اطمینان از نمایش صحیح تصویر در اندازه جدید */
-    border-radius: 30px;
-    margin-bottom: 10px;
-    transition: border-color 0.3s ease;
-}
-
-.other-posts-container .post-card {
-    background-color: #ffffff;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 30px;
-    color: #000000;
-    transition: border-color 0.3s ease;
-    padding-left: 140px;
-    padding-right: 140px;
-    transition: color 0.3s, transform 0.3s;
-}
-
-.post-card img.post-image {
-    width: 100%;
-    height: auto;
-    border-radius: 60px;
-    margin-bottom: 10px;
-    color: #000000;
-    transition: color 0.3s, transform 0.3s;
-}
-
-.latest-post, .post-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* انتقال افکت برای تغییرات صاف */
-}
-
-.latest-post:hover, .post-card:hover {
-    transform: scale(1.05); /* افزایش سایز در هاور */
-}
 
 
 body.dark .grid-item,
@@ -326,8 +334,8 @@ body.dark .btn-primary {
 .profile-photo {
     width: 100px;
     height: 100px;
-    border-radius: 50%;  /* تبدیل عکس به دایره */
-    margin-right: 10px;  /* فاصله از متن کامنت */
+    border-radius: 50%;  
+    margin-right: 10px;  
 }
 
 .article-content img {
@@ -335,10 +343,10 @@ body.dark .btn-primary {
     margin-left: auto;
     margin-right: auto;
     align-items: center;
-    max-width: 100%;  /* جلوگیری از تجاوز تصویر به بیرون از محدوده */
-    height: auto;     /* حفظ نسبت تصویر */
-    display: block;   /* جلوگیری از تداخل با متن */
-    margin: 10px auto;  /* فاصله با اطراف و مرکزیت تصویر */
+    max-width: 100%; 
+    height: auto;     
+    display: block;        
+    margin: 10px auto;         
 }
 
 
@@ -365,6 +373,27 @@ body, h1, h2, h3, p, a {
 }
 
 
+
+
+.p-4 {
+
+    padding: 32px;
+    padding-top: 100px;
+    padding-bottom: 20px;
+    padding-left: 330px;
+    padding-right: 330px;
+    
+}
+
+
+.errorlist {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    list-style: none;
+}
+
+
 @media (max-width: 800px) {
 
     * {
@@ -386,7 +415,7 @@ body, h1, h2, h3, p, a {
     }
 
     .nav-links a {
-        font-size : 18px;
+        font-size : 3vw;
         margin: 8px; 
         width: 100%; 
         text-align: center; 
@@ -395,6 +424,10 @@ body, h1, h2, h3, p, a {
     .header {
         padding: 10px; 
         font-size: 25px;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        flex-wrap: nowrap;
     }
 
     footer {
@@ -414,26 +447,17 @@ body, h1, h2, h3, p, a {
     .other-posts-container .post-card {
 
         font-size: 6px;
-        padding-left: 0px;
         padding-right: 0px;
+        padding-left : 0px;
 
+    }
+    .latest-posts-container {
+        padding-top: 50px;
+        display: contents;
     }
 } 
 
-.p-4 {
-
-    padding: 32px;
-    padding-top: 100px;
-    padding-bottom: 20px;
-    padding-left: 330px;
-    padding-right: 330px;
-    
-}
 
 
-.errorlist {
-    color: red;
-    font-size: 0.9rem;
-    margin-top: 5px;
-    list-style: none;
-}
+
+

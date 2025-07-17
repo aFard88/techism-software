@@ -24,7 +24,7 @@
     
     <div class="other-posts-container">
         {% for post in other_posts %}
-        <div class="post-card">
+        <div class="post-card  pl-10">
             <a href="{% url 'blog_detail' post.pk %}">
                 {% if post.image and post.image.url %}
                     <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post-image">
@@ -32,10 +32,13 @@
                     <img src="{% static 'default-image.png' %}" alt="{{ post.title }}" class="post-image">
                 {% endif %}
             </a>
-            <h2><a href="{% url 'blog_detail' post.pk %}">{{ post.title }}</a></h2>
+            
             
             
         </div>
+        <h2><a href="{% url 'blog_detail' post.pk %}" class="other-posts-title">{{ post.title }}</a></h2>
+        
+
         {% endfor %}
     </div>
     
