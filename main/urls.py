@@ -10,7 +10,6 @@ from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [
-    #path('', views.main, name='index'),
     path("about/",views.about,name="about"),
     path("dashboard/",views.dashboard , name="dashboard"),
     path('',include("django.contrib.auth.urls")),
@@ -25,7 +24,7 @@ urlpatterns = [
     path('category/<int:pk>/', CategoryDetailView.as_view(), name='category_detail'),
     path('change-password/', auth_views.PasswordChangeView.as_view(template_name='change_password.html'), name='password_change'),
     path('change-password/done/', auth_views.PasswordChangeDoneView.as_view(template_name='change_password_done.html'), name='password_change_done'),
-    
+
     
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

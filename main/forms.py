@@ -5,15 +5,7 @@ from .models import CustomUser
 from django.contrib.auth import get_user_model 
 
 class CommentForm(forms.Form):
-    body = forms.CharField(
-        widget=forms.Textarea(
-            attrs={
-                "class": "form-control", 
-                "placeholder": "نظر خود را بنویسید...",
-                "rows": 4, 
-            }
-        )
-    )
+    body = forms.CharField(widget=forms.Textarea(attrs={"class": "form-control", "placeholder": "نظر خود را بنویسید...", "rows": 4, }) , max_length=450)
 
 
 class CustomUserCreationForm(UserCreationForm):

@@ -11,7 +11,6 @@ from django.views.generic import ListView
 from .forms import CustomAuthenticationForm
 
 
-
 def main(request):
   mymembers = Member.objects.all().values()
   template = loader.get_template('main.html')
@@ -28,23 +27,6 @@ def about(request):
 def dashboard(request):
     return render(request, "dashboard.html")
 
-#class CategoryListView(ListView):
- #   model = Category
-  #  template_name = 'main.html'  
-   # context_object_name = 'categories'  
-
-#def blog_index(request):
-  #  latest_posts = Post.objects.order_by('-created_on')[:3]  
-   # other_posts = Post.objects.order_by('-created_on')[3:]   
-    
-   # context = {
-    #    "latest_posts": latest_posts,
-     #   "other_posts": other_posts,
-        
-    #}
-   # categories = Category.objects.all()
-  #  return render(request, "main.html", categories , context)
-
 def blog_index(request):
     latest_posts = Post.objects.all().order_by('-created_on')[:3]
     other_posts = Post.objects.all().order_by('-created_on')[3:]
@@ -55,18 +37,6 @@ def blog_index(request):
         'categories': categories
     })
 
-
-
-#def blog_category(request, category):
-  #  posts = Post.objects.filter(
-  #      categories__name__contains=category
-   # )
-    
-   # context = {
-  #      "category": category,
-   #     "posts": posts,
-  #  }
-   # return render(request, "blog/category.html", context)
 
 def blog_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
@@ -90,6 +60,16 @@ def blog_detail(request, pk):
         "comments": comments,
         "form": form,
     }
+    def get_context_data(self, **kwargs):
+        data = super().get_context_data(**kwargs)
+
+        likes_connected = get_object_or_404(Post, id=self.kwargs['pk'])
+        liked = False
+        if likes_connected.likes.filter(id=self.request.user.id).exists():
+            liked = True
+        data['number_of_likes'] = likes_connected.number_of_likes()
+        data['post_is_liked'] = liked
+        return data
 
     return render(request, "blog/detail.html", context)
 
@@ -126,7 +106,7 @@ def dashboard_view(request):
 
     return render(request, 'dashboard.html', {'user': user, 'form': form})
 
-@login_required
+
 
 
 @login_required
@@ -183,5 +163,3 @@ class CategoryDetailView(ListView):
         context['category'] = self.category
         return context
     
-
-

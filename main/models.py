@@ -35,6 +35,7 @@ class Comment(models.Model):
     post = models.ForeignKey("Post", on_delete=models.CASCADE)
     def __str__(self):
         return f"{self.author} on '{self.post}'"
+    
 
 class CustomUserManager(BaseUserManager):
     def create_user(self, email, username, password=None, **extra_fields):
@@ -51,6 +52,9 @@ class CustomUserManager(BaseUserManager):
         extra_fields.setdefault('is_superuser', True)
         
         return self.create_user(email, username, password, **extra_fields)
+
+
+
 
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):

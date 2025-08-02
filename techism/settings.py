@@ -1,4 +1,3 @@
-
 from pathlib import Path
 import os
 
@@ -16,7 +15,7 @@ SECRET_KEY = 'django-insecure-myi)1a8ns2ysv!tumneorzz^lx&g795iaq)zd&+bnr156z%iud
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['185.243.48.176', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -30,7 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main',
     'django_ckeditor_5',
-    
+
 ]
 
 MIDDLEWARE = [
@@ -106,8 +105,8 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
-LOGIN_REDIRECT_URL = "http://127.0.0.1:8000"
-LOGOUT_REDIRECT_URL = "http://127.0.0.1:8000"
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"
 
 
 
@@ -115,13 +114,14 @@ LOGOUT_REDIRECT_URL = "http://127.0.0.1:8000"
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+#STATIC_ROOT = '/opt/techism-software/static'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-MEDIA_ROOT = BASE_DIR/'media'
-MEDIA_URL = '/media/'
+MEDIA_ROOT = 'media/'
+MEDIA_URL = 'media/'
 LANGUAGE_CODE = 'fa'
 LANGUAGES = [
     ('fa', 'Persian'),]
@@ -158,9 +158,9 @@ CKEDITOR_5_CUSTOM_CSS = "ckeditor.css"
 CKEDITOR_5_CONFIGS = {
     'default': {
         'toolbar': ['heading', '|', 'bold', 'italic', 'link', 'numberedList', 'blockQuote', 'imageUpload', ],
-    
+
     },
-    
+
     'extends': {
         'blockToolbar': [
             'paragraph', 'heading1', 'heading2', 'heading3',
@@ -170,7 +170,7 @@ CKEDITOR_5_CONFIGS = {
             'blockQuote',
         ],
         'toolbar': ['heading', '|', 'outdent', 'indent', '|', 'bold', 'italic', 'link', 'underline', 'strikethrough','code', '|', 'codeBlock', 'sourceEditing', 'insertImage','bulletedList', 'numberedList', '|',  'blockQuote', 'imageUpload', '|','fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', 'mediaEmbed', 'alignment'],
-        
+
         'table': {
             'contentToolbar': [ 'tableColumn', 'tableRow', 'mergeTableCells',
             'tableProperties', 'tableCellProperties' ],
@@ -184,12 +184,12 @@ CKEDITOR_5_CONFIGS = {
             }
 
         },
-        
+
         'image': {
             'toolbar': []
         },
         'removePlugins': ['ImageResize', 'ImageStyle', 'ImageToolbar', 'ImageCaption'],
-        
+
         'heading' : {
             'options': [
                 { 'model': 'paragraph', 'title': 'Paragraph', 'class': 'ck-heading_paragraph' },
